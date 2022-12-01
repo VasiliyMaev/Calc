@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws Exception {
 
-        System.out.println("Введите, пожалуйста, данные для вычисления : ");
+        System.out.println("Р’РІРµРґРёС‚Рµ, РїРѕР¶Р°Р»СѓР№СЃС‚Р°, РґР°РЅРЅС‹Рµ РґР»СЏ РІС‹С‡РёСЃР»РµРЅРёСЏ : ");
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         System.out.println(calc(input));
@@ -20,10 +20,10 @@ public class Main {
         RomanNumber romanNumber = new RomanNumber();
 
         if (arrayChar.length < 3) {
-            throw new CalcException("т.к. строка не является математической операцией");
+            throw new CalcException("С‚.Рє. СЃС‚СЂРѕРєР° РЅРµ СЏРІР»СЏРµС‚СЃСЏ РјР°С‚РµРјР°С‚РёС‡РµСЃРєРѕР№ РѕРїРµСЂР°С†РёРµР№");
         } else if (arrayChar.length > 3) {
-            throw new CalcException("т.к. формат математической операции не удовлетворяет заданию - " +
-                    "два операнда и один оператор (+, -, /, *).");
+            throw new CalcException("С‚.Рє. С„РѕСЂРјР°С‚ РјР°С‚РµРјР°С‚РёС‡РµСЃРєРѕР№ РѕРїРµСЂР°С†РёРё РЅРµ СѓРґРѕРІР»РµС‚РІРѕСЂСЏРµС‚ Р·Р°РґР°РЅРёСЋ - " +
+                    "РґРІР° РѕРїРµСЂР°РЅРґР° Рё РѕРґРёРЅ РѕРїРµСЂР°С‚РѕСЂ (+, -, /, *).");
         } else {
             a = arrayChar[0];
             b = arrayChar[2];
@@ -39,8 +39,8 @@ public class Main {
                                 bToInt = j.getValue();
 
                                 if (Integer.parseInt(operation(aToInt, bToInt, operator)) < 1) {
-                                    throw new CalcException("т.к. pезультатом работы калькулятора с римскими числами " +
-                                            "могут быть только положительные числа");
+                                    throw new CalcException("С‚.Рє. pРµР·СѓР»СЊС‚Р°С‚РѕРј СЂР°Р±РѕС‚С‹ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂР° СЃ СЂРёРјСЃРєРёРјРё " +
+                                            "С‡РёСЃР»Р°РјРё РјРѕРіСѓС‚ Р±С‹С‚СЊ С‚РѕР»СЊРєРѕ РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рµ С‡РёСЃР»Р°");
                                 } else {
                                     return romanNumber.convertInRoman(Integer.parseInt(operation(aToInt, bToInt, operator)));
                                 }
@@ -55,28 +55,28 @@ public class Main {
                     bToInt = Integer.parseInt(b);
 
                 } catch (Exception e) {
-                    throw new CalcException("т.к. формат ввода не удовлетворяет заданию ");
+                    throw new CalcException("С‚.Рє. С„РѕСЂРјР°С‚ РІРІРѕРґР° РЅРµ СѓРґРѕРІР»РµС‚РІРѕСЂСЏРµС‚ Р·Р°РґР°РЅРёСЋ ");
                 }
                 return operation(aToInt, bToInt, operator);
             } else {
-                throw new CalcException("т.к. формат математической операции не удовлетворяет заданию -" +
-                        " используются разные системы счисления.");
+                throw new CalcException("С‚.Рє. С„РѕСЂРјР°С‚ РјР°С‚РµРјР°С‚РёС‡РµСЃРєРѕР№ РѕРїРµСЂР°С†РёРё РЅРµ СѓРґРѕРІР»РµС‚РІРѕСЂСЏРµС‚ Р·Р°РґР°РЅРёСЋ -" +
+                        " РёСЃРїРѕР»СЊР·СѓСЋС‚СЃСЏ СЂР°Р·РЅС‹Рµ СЃРёСЃС‚РµРјС‹ СЃС‡РёСЃР»РµРЅРёСЏ.");
             }
         }
-        return "Ни одно из условий не подошло.";
+        return "РќРё РѕРґРЅРѕ РёР· СѓСЃР»РѕРІРёР№ РЅРµ РїРѕРґРѕС€Р»Рѕ.";
     }
 
     public static String operation(int a, int b, String operator) throws CalcException {
         int result;
         if (a < 0 || a > 10 || b < 0 || b > 10) {
-            throw new CalcException("т.к. слишком маленькие или слишком большие числа введены.");
+            throw new CalcException("С‚.Рє. СЃР»РёС€РєРѕРј РјР°Р»РµРЅСЊРєРёРµ РёР»Рё СЃР»РёС€РєРѕРј Р±РѕР»СЊС€РёРµ С‡РёСЃР»Р° РІРІРµРґРµРЅС‹.");
         } else {
             result = switch (operator) {
                 case "+" -> a + b;
                 case "-" -> a - b;
                 case "*" -> a * b;
                 case "/" -> a / b;
-                default -> throw new CalcException("т.к. вы ввели не верный оператор.");
+                default -> throw new CalcException("С‚.Рє. РІС‹ РІРІРµР»Рё РЅРµ РІРµСЂРЅС‹Р№ РѕРїРµСЂР°С‚РѕСЂ.");
             };
         }
         return Integer.toString(result);
